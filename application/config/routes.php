@@ -86,7 +86,7 @@ $route['conta']                                     = 'areauser/principal';
 $route['atualizarconta']                            = 'areauser/updateCliente';
 $route['login']                                     = 'areauser/login';
 $route['cadastroconta']                             = 'areauser/insertCliente';
-$route['impressoes/geraCupom']                      = "inicio/geraCupom";
+// $route['impressoes/geraCupom']                      = "inicio/geraCupom";
 
 //  ╔═══════════════════════════════════════════════════════════════════════════════╗
 //  ║ ╔═══════════════════════════════════════════════════════════════════════════╗ ║

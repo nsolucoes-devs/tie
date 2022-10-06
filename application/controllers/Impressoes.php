@@ -129,29 +129,28 @@ class Impressoes extends Admin_Controller {
         }
     }
     
-    public function geraCupom($id){
-        
-        $a = $this->reservasmodel->getAluguelAllData($id);
-        if($a) {
-            $data = array(
-                'aluguel'       => $a['venda'],
-                'loja'          => $a['loja'],
-                // 'vendedor'      => $a['vendedor'],
-                // 'cliente'       => $a['cliente'],
-                // 'desconto'      => $a['desconto'],
-                // 'frete'         => $a['frete'],
-                // 'lastValue'     => $a['lastValue'],
-                // 'pagamento'     => $a['pagamento'],
-            );
-            
-            $data['logado'] = isset($_SESSION['logado']) ? true : false;
-            $data['termo'] = $this->reservasmodel->termo();
-            $data['contrato'] = $this->reservasmodel->contrato();
-        }
+    public function geraCupom(){
 
-                
-            $this->load->view('relatorio/cupom', $data);
-        
+        if(isset($_GET['chave'])) {
+
+            $chave = $_GET['chave']; 
+
+            $response = $this->reservasmodel->getAluguelAllData($chave);
+            if($response) {
+                $data = array(
+                    'aluguel'       => $response['venda'],
+                    'loja'          => $response['loja'],
+                    'logado'        => isset($_SESSION['logado']) ? true : false,
+                    'termo'         => $this->reservasmodel->termo(),
+                    'contrato'      => $this->reservasmodel->contrato()
+                );
+                $this->load->view('relatorio/cupom', $data);
+            } else {
+                redirect( base_url('listaLocacao') );
+            }
+        } else {
+            redirect( base_url('listaLocacao') );
+        }
     }
     
     public function cupom($id){
@@ -166,9 +165,6 @@ class Impressoes extends Admin_Controller {
             );
         }
         
-        $this->load->view('relatorio/cupom', $data);
-        
-            
-            
+        $this->load->view('relatorio/cupom', $data);            
     }
 }
