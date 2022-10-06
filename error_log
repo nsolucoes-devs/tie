@@ -1,0 +1,261 @@
+[23-May-2022 00:18:46 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:22:15 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:22:29 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:22:39 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:22:47 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:22:54 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:02 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:10 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:17 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:24 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:34 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:40 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:45 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:23:51 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:30:29 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 03:30:58 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:32:07 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 00:32:14 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 03:32:19 UTC] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting identifier (T_STRING) in /home/cellstore/public_html/novo/application/controllers/admin/Admindepartamentos.php on line 6
+[23-May-2022 03:32:24 UTC] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting identifier (T_STRING) in /home/cellstore/public_html/novo/application/controllers/admin/Adminmarcas.php on line 6
+[23-May-2022 03:36:32 UTC] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting identifier (T_STRING) in /home/cellstore/public_html/novo/application/controllers/admin/Adminajustes.php on line 6
+[23-May-2022 03:36:51 UTC] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting identifier (T_STRING) in /home/cellstore/public_html/novo/application/controllers/admin/Adminajustes.php on line 6
+[23-May-2022 00:54:34 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[23-May-2022 03:54:40 UTC] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting identifier (T_STRING) in /home/cellstore/public_html/novo/application/controllers/admin/Admindepartamentos.php on line 6
+[23-May-2022 01:03:36 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/cellstore/public_html/novo/application/models/Estoque.php on line 250
+[10-Jun-2022 22:50:37 UTC] PHP Fatal error:  Access level to Inicio::limpa() must be public (as in class MY_Controller) in /home/agencia/public_html/tie/application/controllers/Inicio.php on line 315
+[10-Jun-2022 22:52:34 UTC] PHP Fatal error:  Access level to Inicio::limpa() must be public (as in class MY_Controller) in /home/agencia/public_html/tie/application/controllers/Inicio.php on line 315
+[10-Jun-2022 22:52:46 UTC] PHP Fatal error:  Access level to Inicio::limpa() must be public (as in class MY_Controller) in /home/agencia/public_html/tie/application/controllers/Inicio.php on line 315
+[11-Jun-2022 03:20:16 UTC] PHP Fatal error:  Access level to Inicio::limpa() must be public (as in class MY_Controller) in /home/agencia/public_html/tie/application/controllers/Inicio.php on line 315
+[11-Jun-2022 03:21:07 UTC] PHP Fatal error:  Access level to Inicio::limpa() must be public (as in class MY_Controller) in /home/agencia/public_html/tie/application/controllers/Inicio.php on line 315
+[11-Jun-2022 03:21:35 UTC] PHP Fatal error:  Access level to Inicio::limpa() must be public (as in class MY_Controller) in /home/agencia/public_html/tie/application/controllers/Inicio.php on line 315
+[27-Jun-2022 18:57:09 UTC] PHP Fatal error:  Cannot redeclare Reservas::listagem() in /home/agencia/public_html/tie/application/controllers/admin/Reservas.php on line 30
+[12-Jul-2022 17:40:55 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 43
+[12-Jul-2022 17:41:09 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 43
+[12-Jul-2022 17:41:24 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 43
+[12-Jul-2022 17:41:37 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 43
+[12-Jul-2022 17:41:44 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 43
+[12-Jul-2022 17:55:01 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 44
+[12-Jul-2022 17:59:03 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 44
+[12-Jul-2022 17:59:04 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 44
+[22-Jul-2022 21:10:53 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 180
+[22-Jul-2022 21:10:54 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 180
+[22-Jul-2022 21:10:57 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 180
+[10-Aug-2022 19:10:27 UTC] PHP Fatal error:  Cannot use temporary expression in write context in /home/agencia/public_html/tie/application/controllers/admin/Adminrelatorios.php on line 33
+[11-Aug-2022 11:59:49 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[11-Aug-2022 11:59:50 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[11-Aug-2022 11:59:51 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[11-Aug-2022 11:59:54 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[11-Aug-2022 11:59:54 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[11-Aug-2022 12:00:04 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[11-Aug-2022 12:00:06 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[11-Aug-2022 12:00:08 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::getAllAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 402
+[12-Aug-2022 19:28:35 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Caixamodel.php on line 376
+[12-Aug-2022 19:46:13 UTC] PHP Fatal error:  Cannot redeclare Firstword() (previously declared in /home/agencia/public_html/tie/application/helpers/funcao_helper.php:157) in /home/agencia/public_html/tie/application/helpers/funcao_helper.php on line 162
+[12-Aug-2022 19:46:15 UTC] PHP Fatal error:  Cannot redeclare Firstword() (previously declared in /home/agencia/public_html/tie/application/helpers/funcao_helper.php:157) in /home/agencia/public_html/tie/application/helpers/funcao_helper.php on line 162
+[12-Aug-2022 17:26:40 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:26:42 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:26:43 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:26:47 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:26:49 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 20:27:09 UTC] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:12 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:13 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:13 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:14 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:15 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:28 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:29 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:29 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:30 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:27:30 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Reservasmodel::buscaAluguel() in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 307
+[12-Aug-2022 17:31:04 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:05 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:06 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:06 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:06 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:07 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:07 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:07 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:07 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:08 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:08 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[12-Aug-2022 17:31:08 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 328
+[17-Aug-2022 15:05:06 America/Sao_Paulo] PHP Fatal error:  require_once(): Failed opening required '/Adminajustes.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/agencia/public_html/tie/application/controllers/admin/Reservas.php on line 171
+[18-Aug-2022 16:47:16 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Reservasmodel.php on line 635
+[26-Aug-2022 10:34:23 America/Sao_Paulo] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/agencia/public_html/tie/application/models/Produtos.php on line 800
+[26-Aug-2022 10:34:42 America/Sao_Paulo] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/agencia/public_html/tie/application/models/Produtos.php on line 800
+[26-Aug-2022 10:34:45 America/Sao_Paulo] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/agencia/public_html/tie/application/models/Produtos.php on line 800
+[26-Aug-2022 14:00:44 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Agendamodel.php on line 181
+[26-Aug-2022 18:54:11 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/agencia/public_html/tie/application/controllers/admin/Reservas.php on line 344
+[30-Aug-2022 12:19:02 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 18878464 bytes) in /home/agencia/public_html/tie/application/views/reservas/aluguel.php on line 646
+[30-Aug-2022 17:59:08 UTC] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Produtos.php on line 221
+[12-Sep-2022 11:48:48 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_result.php on line 214
+[12-Sep-2022 11:48:48 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/agencia/public_html/tie/system/core/Exceptions.php on line 1
+[12-Sep-2022 11:49:53 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_result.php on line 214
+[12-Sep-2022 11:49:53 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/agencia/public_html/tie/system/core/Exceptions.php on line 1
+[12-Sep-2022 11:51:50 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 286
+[12-Sep-2022 11:52:17 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/system/core/Exceptions.php on line 271
+[12-Sep-2022 11:52:50 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 11:56:07 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 11:59:40 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 12:01:11 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 12:02:16 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 12:02:20 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 12:02:44 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 12:03:00 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 12:03:11 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientes.php on line 290
+[12-Sep-2022 13:24:07 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesOld.php on line 290
+[12-Sep-2022 13:25:16 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesOld.php on line 290
+[12-Sep-2022 13:34:06 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesOld.php on line 290
+[12-Sep-2022 13:35:20 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesOld.php on line 290
+[12-Sep-2022 13:35:43 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesOld.php on line 290
+[15-Sep-2022 23:43:56 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesAll.php on line 336
+[15-Sep-2022 23:44:39 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesAll.php on line 336
+[15-Sep-2022 23:45:12 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/listaClientesAll.php on line 336
+[18-Sep-2022 20:36:21 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4198400 bytes) in /home/agencia/public_html/tie/application/controllers/admin/Adminclientes.php on line 113
+[18-Sep-2022 20:36:27 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4198400 bytes) in /home/agencia/public_html/tie/application/controllers/admin/Adminclientes.php on line 113
+[18-Sep-2022 20:36:29 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4198400 bytes) in /home/agencia/public_html/tie/application/controllers/admin/Adminclientes.php on line 113
+[18-Sep-2022 20:36:30 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4198400 bytes) in /home/agencia/public_html/tie/application/controllers/admin/Adminclientes.php on line 113
+[18-Sep-2022 20:52:42 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/tableListAll.php on line 363
+[18-Sep-2022 21:22:18 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/tableListAll.php on line 393
+[18-Sep-2022 21:24:19 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/tableListAll.php on line 393
+[18-Sep-2022 21:27:18 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 4210688 bytes) in /home/agencia/public_html/tie/application/views/restrito/cliente/tableListAll.php on line 393
+[20-Sep-2022 17:19:54 America/Sao_Paulo] PHP Fatal error:  Cannot use [] for reading in /home/agencia/public_html/tie/application/models/Comprasmodel.php on line 1851
+[22-Sep-2022 06:13:29 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 2097152 bytes) in /home/agencia/public_html/tie/application/controllers/admin/Adminclientes.php on line 442
+[22-Sep-2022 06:14:36 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 2097152 bytes) in /home/agencia/public_html/tie/application/controllers/admin/Adminclientes.php on line 442
+[22-Sep-2022 15:50:36 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 262144 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_driver.php on line 307
+[22-Sep-2022 16:00:30 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 262144 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_driver.php on line 307
+[23-Sep-2022 08:46:24 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_result.php on line 214
+[23-Sep-2022 08:46:24 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/agencia/public_html/tie/system/core/Exceptions.php on line 1
+[23-Sep-2022 08:46:37 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_result.php on line 214
+[23-Sep-2022 08:46:37 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/agencia/public_html/tie/system/core/Exceptions.php on line 1
+[23-Sep-2022 11:43:55 America/Sao_Paulo] PHP Fatal error:  Cannot redeclare Clientes::getClienteById() in /home/agencia/public_html/tie/application/models/Clientes.php on line 78
+[23-Sep-2022 17:26:28 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_result.php on line 214
+[23-Sep-2022 17:26:28 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/agencia/public_html/tie/system/core/Exceptions.php on line 1
+[23-Sep-2022 17:27:06 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 20480 bytes) in /home/agencia/public_html/tie/system/database/drivers/mysqli/mysqli_result.php on line 214
+[23-Sep-2022 17:27:06 America/Sao_Paulo] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 32768 bytes) in /home/agencia/public_html/tie/system/core/Exceptions.php on line 1
+[03-Oct-2022 02:43:44 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:44 UTC] PHP Warning:  chmod(): No such file or directory in /home/agencia/public_html/tie/index.php(1) : runtime-created function on line 1
+[03-Oct-2022 02:43:45 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:45 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:45 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:45 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:45 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:46 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:48 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:49 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:43:49 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 02:44:27 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:32 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:35 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:36 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:37 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:18:37 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 03:19:32 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 05:47:04 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 05:47:05 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 05:49:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 05:49:56 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:07:50 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:07:51 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:10:27 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:10:28 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:23:58 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:23:59 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:57:04 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 06:57:04 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:27:43 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:28:03 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:28:03 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:28:03 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:28:04 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:28:04 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:28:04 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:35:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:35:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:35:56 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:35:56 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:35:57 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 07:35:57 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 09:16:56 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[03-Oct-2022 09:16:57 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:53 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:55 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:56 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:47:56 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:14 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:16 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:16 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:19 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:19 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:21 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:25 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:33 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:39 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
+[06-Oct-2022 11:52:40 UTC] PHP Deprecated:  Function create_function() is deprecated in /home/agencia/public_html/tie/index.php on line 1
