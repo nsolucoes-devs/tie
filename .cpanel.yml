@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/example/public_html/tie
+    - export DEPLOYPATH=/home/agencia/public_html/tie
     - /bin/cp -a * $DEPLOYPATH
