@@ -274,15 +274,15 @@
                                         <h4><b>Dependentes de <?= $cliente['clt_nome'] ?></b></h4>
                                     </div>
                                     <div class="col-md-6">
-                                        <form action="<?php echo base_url('50d849c4ab008a40ab39cdaf352f35f5/'.$cliente['clt_id'] ) ?>" method="post">
+                                        <!--<form action="<?php echo base_url('50d849c4ab008a40ab39cdaf352f35f5/'.$cliente['clt_id'] ) ?>" method="post">-->
                                             <div class="button-area">
                                                 <a href="<?php echo base_url('admin/admindependentes/cadastroDependente?idCliente='. $cliente['clt_id']) ?>"><button type="button" class="btn btn-secondary" style="margin-right: 15px" title="Adicionar Item"><em class="fa fa-plus"></em></button></a>
-                                                <div class="search-field">
-                                                    <input type="text" id="search" name="filtro" class="form-control-custom" style="height: 39px" value="<?php if(isset($filtro)) { echo $filtro; } ?>">
-                                                    <button style="cursor: pointer" class="btn btn-secondary search mb-0"><em class="fa fa-search"></em></button>
-                                                </div>
+                                                <!--<div class="search-field">-->
+                                                <!--    <input type="text" id="search" name="filtro" class="form-control-custom" style="height: 39px" value="<?php if(isset($filtro)) { echo $filtro; } ?>">-->
+                                                <!--    <button style="cursor: pointer" class="btn btn-secondary search mb-0"><em class="fa fa-search"></em></button>-->
+                                                <!--</div>-->
                                             </div>
-                                        </form>
+                                        <!--</form>-->
                                     </div>
                                 </div>
                                 <div class="row" style="background-color: white; margin-left: 5px; margin-right: 5px">

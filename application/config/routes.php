@@ -105,9 +105,9 @@ $route['2802a69d3ecca828c74a75fcfeab3200']          = 'logincontroller/validar';
 $route['215521f1d88d23d4411a877b4d4a0d87']          = 'logincontroller/sair';                   //OK
 
 //$route['home']                                    = 'restrito/indexAdmin';
-$route['106a6c241b8797f52e1e77317b96a201']          = 'restrito/index';                    //OK
-$route['dashboard']                                 = 'restrito/indexAdmin';                    //OK
-$route['dashboard2']                                = 'restrito/index2';        
+$route['106a6c241b8797f52e1e77317b96a201']          = 'restrito/index';                         //OK
+$route['dashboard']                                 = 'restrito/index';                    //OK
+$route['dashboard2']                                = 'restrito/index';        
 
 //Produtos
 
@@ -385,7 +385,7 @@ $route['432b311230a5e558d6dfdd37aa7cb986']          = 'FinalizaUnico/finaliza2';
 $route['36d2a623d4b5878db84e0032b88bcabc/(:num)']   = 'PagamentoSTN/pedido/$1';
 
 
-$route['reservas']                                  = "admin/reservas/index";
+$route['reservas']                                  = "admin/reservas/aluguelNEW";
 $route['reservas/listagem']                         = "admin/reservas/listagem";
 $route['reservas/agenda']                           = "admin/reservas/agenda";
 $route['pendente/(:any)']                           = "admin/reservas/pendente/$1";
@@ -396,6 +396,7 @@ $route['reservas/listagemajax']                     = "admin/reservas/listagemaj
 // $route['reservas-teste']                            = "admin/reservas/teste";
 $route['masculino']                                 = "admin/reservas/aluguel/2";
 $route['feminino']                                  = "admin/reservas/aluguel/1";
+
 
 // ROTA SECUNDARIA PARA EDIÇÃO
 $route['linksecundario']                            = "admin/reservas/aluguelsecundario/2";
@@ -423,8 +424,9 @@ $route['OrcamentoReserva']                          = "admin/reservas/orcamento"
 $route['alteraReserva']                             = "admin/reservas/editaAluguel";  
 
 $route['agendaDia']                                 = "agenda/getData";  
-$route['buscaLocacao']                              = "agenda/dadosLocacao";  
-$route['updateLocacao']                             = "agenda/updateStatus";  
+$route['buscaLocacao']                              = "admin/reservas/dadosLocacao";  
+$route['updateLocacao']                             = "agenda/updateStatus";
+$route['cancelLocacao']                             = "agenda/cancelaStatus";
 $route['updatePagamento']                           = "agenda/updateValores";
 $route['buscaDependente']                           = "agenda/dependentes";
 $route['updateAllLocacao']                          = "agenda/updateStatus";
@@ -473,6 +475,6 @@ $route['exibeClientesOld']                          = 'admin/adminclientes/exibe
 $route['buscaClientesOld']                          = 'admin/adminclientes/buscadadosClienteOld';
 $route['updateClientesOld']                         = 'admin/adminclientes/updatedadosClienteOld';
 
-
+$route['exibeReservas']                             = 'admin/reservas/exibeListaReservas';
 
 

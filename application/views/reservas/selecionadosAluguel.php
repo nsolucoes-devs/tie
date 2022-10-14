@@ -7,60 +7,60 @@
                         <tbody>
                             <?php $lista=""; $total = 0; $aux = 1; foreach($lisTraje as $ltj){ ?>
                                 <tr>
-                                    <td class="col-md-2" style="height: 10rem;">
+                                    <td class="col-1" style="height: 10rem;">
                                         <div class="align-items-center d-flex h-100 justify-content-center">
                                             <a class="pop">
                                                 <img class="img-thumbnail rounded" src="<?php echo $ltj['produto_imagens_opcional1'];?>" alt="">
                                             </a>
                                         </div>
                                     </td>
-                                    <td class="col-md-1" style="height: 10rem;">
-                                        <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
+                                    <td class="col-1" style="height: 10rem;">
+                                        <div class="align-items-center d-flex h-50 justify-content-center text-center">
                                             <strong>Cod.</strong>
                                         </div>
-                                        <div class="col-md-12 h-50 text-center">
+                                        <div class="h-50 text-center">
                                             <p><?php echo str_pad($aux , 4 , '0' , STR_PAD_LEFT) ?></p>
                                             <?php $aux++; ?>
                                         </div>
                                     </td>
-                                    <td class="col-md-3" style="height: 10rem;">
-                                        <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
-                                            <strong>Nome do Traje</strong>
+                                    <td class="col-4" style="height: 10rem;">
+                                        <div class="align-items-center d-flex h-50 justify-content-center text-center">
+                                            <strong>Traje</strong>
                                         </div>
-                                        <div class="col-md-12 h-50 text-center">
+                                        <div class="h-50 text-center">
                                             <p class="text-concat"><?php echo $ltj['produto_nome'] ?></p>
                                         </div>
                                     </td>
-                                    <td class="col-md-2" style="height: 10rem;">
-                                        <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
+                                    <td class="col-1" style="height: 10rem;">
+                                        <div class="align-items-center d-flex h-50 justify-content-center text-center">
                                             <strong>Cor</strong>
                                         </div>
-                                        <div class="col-md-12 h-50 text-center">
+                                        <div class="h-50 text-center">
                                             <p><?php echo $ltj['produto_cores'];?></p>
                                         </div>
                                     </td>
-                                    <td class="col-md-2" style="height: 10rem;">
-                                        <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
+                                    <td class="col-1" style="height: 10rem;">
+                                        <div class="align-items-center d-flex h-50 justify-content-center text-center">
                                             <strong>Tamanho</strong>
                                         </div>
-                                        <div class="col-md-12 h-50 text-center">
+                                        <div class="h-50 text-center">
                                             <p><?php echo $ltj['produto_tamanhos'];?></p>
                                         </div>
                                     </td>
-                                    <td class="col-md-2" style="height: 10rem;">
-                                        <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
+                                    <td class="col-1" style="height: 10rem;">
+                                        <div class="align-items-center d-flex h-50 justify-content-center text-center">
                                             <strong>Valor</strong>
                                         </div>
-                                        <div class="col-md-12 h-50 text-center">
-                                            <p>R$ <?php echo $ltj['produto_valor'] ?></p>
+                                        <div class="h-50 text-center">
+                                            <p> <?php echo $ltj['produto_valor'] ?></p>
                                             <?php $total = (float)$total + (float)$ltj['produto_valor'];?>
                                         </div>
                                     </td>
-                                    <td class="col-md-2" style="height: 10rem;">
-                                        <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
+                                    <td class="col-1" style="height: 10rem;">
+                                        <div class="align-items-center d-flex h-50 justify-content-center text-center">
                                             <strong></strong>
                                         </div>
-                                        <div class="col-md-12 h-50 text-center">
+                                        <div class="h-50 text-center">
                                             <button type="button" class="btn btn-danger" onclick="remove(<?php echo $ltj['produto_id'];?>)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                         </div>
                                     </td>

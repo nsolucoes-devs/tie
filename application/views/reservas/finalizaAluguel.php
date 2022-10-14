@@ -9,10 +9,10 @@
                         <tr>
                             <td class="col-md-1" style="height: 10rem;">
                                 <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
-                                    <strong>Item.</strong>
+                                    <strong>#</strong>
                                 </div>
                                 <div class="col-md-12 h-50 text-center">
-                                    <p><?php echo str_pad($aux , 4 , '0' , STR_PAD_LEFT) ?></p>
+                                    <p><?php echo str_pad($aux , 2 , '0' , STR_PAD_LEFT) ?></p>
                                 </div>
                             </td>
                             <td class="col-md-1" style="height: 10rem;">
@@ -22,7 +22,7 @@
                                     </a>
                                 </div>
                             </td>
-                            <td class="col-md-1" style="height: 10rem;">
+                            <td class="col-md-2" style="height: 10rem;">
                                 <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
                                     <strong>Cod.</strong>
                                 </div>
@@ -31,7 +31,7 @@
                                     <?php $aux++; ?>
                                 </div>
                             </td>
-                            <td class="col-md-5" style="height: 10rem;">
+                            <td class="col-md-4" style="height: 10rem;">
                                 <div class="align-items-center col-md-12 d-flex h-50 justify-content-center text-center">
                                     <strong>Nome do Traje</strong>
                                 </div>
@@ -60,7 +60,7 @@
                                     <strong>Valor</strong>
                                 </div>
                                 <div class="col-md-12 h-50 text-center">
-                                    <p>R$ <?php echo $ltj['produto_valor'] ?></p>
+                                    <p><?php echo $ltj['produto_valor'] ?></p>
                                     <?php $total = (float)$total + (float)$ltj['produto_valor'];?>
                                 </div>
                             </td>
@@ -79,7 +79,7 @@
             <div>
                 <h2 class="text-right text-danger mt-5 w-100">
                     <b>
-                        TOTAL DOS TRAJES R$ <?php echo number_format($total, 2, ',', ' '); ?>
+                        TOTAL DA LOCAÇÃO R$ <?php echo number_format($total, 2, ',', ' '); ?>
                     </b>
                 </h2>
                 <div class="col-md-12 d-flex flex-column mt-4 px-0">
@@ -163,14 +163,17 @@
                     </div>
                     <div style="text-align:-webkit-right;">
                         <div class="col-md-6"></div>
-                        
                         <div class="col-md-6">
-                            <div id="labelDesconto" style="display:none">
-                                <label for="valorDesconto" style="margin:0;">Desconto:</label>
-                                <label for="valorDesconto" class="input-group-text">R$</label>
-                                <input type="text" name="valorDesconto" id="valorDesconto" class="form-control money" onfocusout="calculaResto()" value="0,00" >  
+                            <div id="labelDesconto" class="form-group" style="display:none">
+                                <label for="valorDesconto" style="margin:0;">Desconto:</label> 
+                                <div class="input-group">
+                                   <label for="valorDesconto" class="input-group-text">R$</label>
+                                    <input type="text" name="valorDesconto" id="valorDesconto" class="form-control money" onfocusout="calculaResto()" value="0,00" >  
+                                </div>
                             </div>
-                            <button type="button" class="btn btn-light" id="buttonDesconto" onclick="desconto()"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-light" id="buttonDesconto" onclick="desconto()">
+                                Desconto <i class="fa fa-money"></i>
+                            </button>
                         </div>
                     </div>
                 </div>                
@@ -485,13 +488,13 @@
                                 exibeContrato(chave);
                                 setTimeout(function(){ 
                                     //window.location.replace('<?php echo base_url('impressoes/geraCupom?chave=');?>' + chave + '&terms=true');
-                                    window.location.replace('<?php echo base_url('reservas');?>');
+                                    window.location.replace('<?php echo base_url('listaLocacao');?>');
                                 }, 1500);
                             } else {
                                 Swal.fire('Locação realizada com sucesso!.');
                                 setTimeout(function(){ 
                                     //window.location.replace('<?php echo base_url('impressoes/geraCupom?chave=');?>' + chave);
-                                    window.location.replace('<?php echo base_url('reservas');?>');
+                                    window.location.replace('<?php echo base_url('listaLocacao');?>');
                                 }, 1500);
                             }
                         }else{

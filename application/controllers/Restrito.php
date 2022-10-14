@@ -8,9 +8,6 @@ class Restrito extends Admin_Controller {
         $this->load->database();
         $this->load->model('permissoes');
         $this->load->model('usuarios');
-        $this->load->model('acessomodel');
-        $this->load->model('comprasmodel');
-        $this->load->model('lojas/Crudlojas');
         $this->load->model('modelauxiliar');
         date_default_timezone_set('America/Sao_Paulo');
     }
@@ -21,54 +18,90 @@ class Restrito extends Admin_Controller {
         
         if(strpos($dados, "Dash")){
             $this->indexAdmin();
+            //$this->indexFunc();
         }else if(strpos($dados, "Das2")){
-            $this->index2();
+            //$this->indexFunc();
+            $this->indexAdmin();
         }
     }
     
     public function indexAdmin(){
+        
         if($_POST){
             $dias = $_POST['dias'];
         }else{
             $dias = 0;
         }
-        
         $data = array(
-            'pendencias'    => $this->modelauxiliar->pendencias($dias),
-            'naoEntregue'   => $this->modelauxiliar->atrasos($dias),
-            'ajustes'       => $this->modelauxiliar->ajustes($dias),
-            'retirada'      => $this->modelauxiliar->retiradas($dias),
-            'locacoes'      => $this->modelauxiliar->locacoes($dias),
-            'dias'          => $dias,
-        );
-        
+            'dias'              => $dias,
+            'bruto'             => $this->getBruto($dias),
+            'caixa'             => $this->getCaixa($dias),
+            'naoFinalizado'     => $this->getNaoFinalizado($dias),
+            'newLocacao'        => $this->getNewLocacao($dias),
+            'cancelados'        => $this->getCancelados($dias),
+            'naoEntregue'       => $this->getNaoEntregue($dias),
+            'ajustes'           => $this->getAjustes($dias),
+            'retirada'          => $this->getRetirada($dias),
+            'maisLocados'       => $this->getMaisLocados($dias),
+            'ultLocacoes'       => $this->getUltLocacoes($dias),
+            'pagRecorrente'     => $this->getPagRecorrente($dias),
+            );
         $this->header(1);
         $this->load->view('restrito/index', $data);
         $this->footer();
     }
 
-    public function index2(){
+    public function indexFunc(){
+        
         if($_POST){
             $dias = $_POST['dias'];
         }else{
             $dias = 0;
         }
         
-        $data = array(
-            'pendencias'    => $this->modelauxiliar->pendencias($dias),
-            'naoEntregue'   => $this->modelauxiliar->atrasos($dias),
-            'ajustes'       => $this->modelauxiliar->ajustes($dias),
-            'retirada'      => $this->modelauxiliar->retiradas($dias),
-            'locacoes'      => $this->modelauxiliar->locacoes($dias),
-            'dias'          => $dias,
-        );
         
+        $data['dias'] = $dias;
         $this->header(1);
         $this->load->view('restrito/index2', $data);
         $this->footer();
     }
     
-    public function getUltimosPedidos(){
+    function getBruto($dias){
+        return $this->modelauxiliar->getBruto($dias);
+    }
+    function getCaixa($dias){
+        return $this->modelauxiliar->getLiquido($dias);
+    }
+    function getNaoFinalizado($dias){
+        return $this->modelauxiliar->getIncompleto($dias);
+    }
+    function getNewLocacao($dias){
+        return $this->modelauxiliar->getLocacao($dias);
+    }
+    function getCancelados($dias){
+        return $this->modelauxiliar->getCancelado($dias);
+    }
+    function getNaoEntregue($dias){
+        return $this->modelauxiliar->getNaoRetirado($dias);
+    }
+    function getAjustes($dias){
+        return $this->modelauxiliar->getAjustes($dias);
+    }
+    function getRetirada($dias){
+        return $this->modelauxiliar->getAguardaRetirada($dias);
+    }
+    function getMaisLocados($dias){
+        return $this->modelauxiliar->getMaisLocado($dias);
+    }
+    function getUltLocacoes($dias){
+        return $this->modelauxiliar->getUltLocado($dias);
+    }
+    function getPagRecorrente($dias){
+        return json_encode($this->modelauxiliar->getPagamentos($dias));
+    }
+    
+    
+    /*public function getUltimosPedidos(){
         $loja_id = $this->input->post('loja_id');
          $this->load->model('comprasmodel');
          $pedidos = $this->comprasmodel->relatorioindex($loja_id);
@@ -323,5 +356,5 @@ class Restrito extends Admin_Controller {
         $this->load->model('comprasmodel');
         $pedidos = $this->comprasmodel->relatoriotraje();
         echo json_encode($pedidos);
-    }
+    }*/
 }

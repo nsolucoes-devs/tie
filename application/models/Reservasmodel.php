@@ -1,7 +1,5 @@
 <?php
 
-use LDAP\Result;
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Reservasmodel extends CI_Model{
@@ -17,9 +15,7 @@ class Reservasmodel extends CI_Model{
         $this->db->delete('aluguelTie');
 
     }
-
-    public function findClients($dados)
-    {
+    public function findClients($dados){
         $this->db->select('clt_id, clt_nome, clt_cpf, clt_cel');
         $this->db->where($dados['busca'], $dados['valor']);
         $data = $this->db->get('clienteTie')->result_array();
@@ -35,7 +31,6 @@ class Reservasmodel extends CI_Model{
         $data = $this->db->get('clienteTie');
         return $data->result_array();
     }
-
     public function cliente($dados){
         
         if($dados['busca'] === "clt_nome") {
@@ -300,15 +295,11 @@ class Reservasmodel extends CI_Model{
 
         return $data;
     }
-
-    public function dependenteNew($dados)
-    {
+    public function dependenteNew($dados){
         $this->db->insert('dependentesTie', $dados);
         return true;
     }
-
-    public function clienteNew($dados)
-    {
+    public function clienteNew($dados){
         $this->db->where('clt_fingerprint', $dados['keyId']);
         $a = $this->db->get('clienteTie')->row_array();
 
@@ -333,44 +324,32 @@ class Reservasmodel extends CI_Model{
         );
         return $data;
     }
-
-    public function evento()
-    {
+    public function evento(){
     }
-
-    public function trajesDept()
-    {
+    public function trajesDept(){
         $a = $this->db->get('departamentos')->result_array();
         return $a;
     }
-
-    public function tamanhos()
-    {
+    public function tamanhos(){
         $this->db->select('opcao_id, opcao_nome');
         $this->db->where('opcao_categoria', 'Tamanho');
         return $this->db->get('opcoes')->result_array();
     }
-
-    public function cores()
-    {
+    public function cores(){
         $this->db->select('opcao_id, opcao_nome');
         $this->db->where('opcao_categoria', 'Cor');
         return $this->db->get('opcoes')->result_array();
     }
-
-    public function getCliente($id)
-    {
+    public function getCliente($id){
         $this->db->where("clt_id", $id);
         $c = $this->db->get('clienteTie')->row_array();
         return $c;
     }
-
     public function gettraje($id){
         $this->db->where("produto_id", $id);
         $c = $this->db->get('produtos')->row_array();
         return $c;
     }
-    
     public function buscaTrajesReserva($dados){ 
 
         if ($dados['categoria'] != null) {
@@ -408,9 +387,7 @@ class Reservasmodel extends CI_Model{
 
         return $a;
     }
-
-    public function buscaTrajesAluguel($dados)
-    {
+    public function buscaTrajesAluguel($dados){
         $z = explode(",", $dados['trajes']);
         for ($i = 0; $i < count($z); $i++) {
             $this->db->where("produto_id", $z[$i]);
@@ -420,9 +397,7 @@ class Reservasmodel extends CI_Model{
 
         return $a;
     }
-
-    public function removeTrajesAluguel($dados)
-    {
+    public function removeTrajesAluguel($dados){
         $z = explode(",", $dados['trajes']);
         $lista = "";
         $aux = 0;
@@ -436,7 +411,6 @@ class Reservasmodel extends CI_Model{
         }
         return $a;
     }
-
     public function buscaAluguel($dados){
         $this->db->select("alg_id, alg_chaveLocacao, alg_trajes, alg_locador, alg_retirada, alg_devolucao");
         $this->db->where("alg_chaveLocacao", $dados);
@@ -460,8 +434,7 @@ class Reservasmodel extends CI_Model{
         }
         return $b;
     }
-
-    public function getAluguelAllData($dados) {
+    public function getAluguelAllData($dados){
 
        
         $this->db->select('alg.*, clt.*, user.nome_usuario as atend_nome, user.telefone as atend_phone, user.email as atend_email');
@@ -545,115 +518,55 @@ class Reservasmodel extends CI_Model{
         } else
             return false;
     }
-
-    public function removeTrajes($dados)
-    {
+    public function removeTrajes($dados){
         $this->db->where("alg_id", $dados['alg_id']);
         $this->db->delete('aluguelTie');
         $a =  $this->buscaAluguel($dados['alg_chaveLocacao']);
         return $a;
     }
-
-    public function pagamentos()
-    {
+    public function pagamentos(){
         $this->db->where("ativo_forma", 1);
         $a = $this->db->get('formas_pagamento')->result_array();
         return $a;
     }
-
-    function formataValor($valor)
-    {
+    function formataValor($valor){
         $valor = str_replace(".", ",", $valor);
         return $valor;
     }
+    function gravaAluguel($dados){
 
-    function gravaAluguel($dados)
-    {
-        $this->db->where('alg_nivel_cliente', 'aluguel');
-        $this->db->where('alg_chaveLocacao', $dados['chaveLocacao']);
-        $zx = $this->db->get('aluguelTie')->row_array();
-        
-        if(count($zx) === 0){
-            if($dados['contrato'] == true) {
-                $contrato = 1;
-            } else {
-                $contrato = 0;
-            }
-     
-            $data = array(
-                'alg_chaveCliente'  => $dados['chaveCliente'],                      //[alg_chaveCliente] => identificaçao do cliente
-                'alg_chaveLocacao'  => $dados['chaveLocacao'],                      //[alg_chaveLocacao] => identificação da locação
-                'alg_nivel_cliente' => "aluguel",                                   //[alg_nivel_cliente] => dependentesTie || clienteTie || aluguel
-                'alg_retirada'      => $this->formatBdDate($dados['retirada']),     //[alg_retirada] => 2022-08-08 
-                'alg_devolucao'     => $this->formatBdDate($dados['devolucao']),    //[alg_devolucao] => 2022-08-15 
-                'alg_trajes'        => "",                                          //[alg_trajes] => identificação do traje locado
-                'alg_total'         => $dados['total'],                             //[alg_total] => total do aluguel
-                'alg_efetivado'     => date('Y-m-d'),                               //[alg_alg_efetivado] => data da efetivação da locação
-                'alg_resto'         => $this->formatBdValor($dados['resto']),       //[alg_resto] =>  valor que falta
-                'alg_tipo'          => 'holiday',                                   //[alg_tipo] => event || birthday || holiday
-                'alg_contrato'      => $contrato,                                   //[alg_contrato] => 1 impresso || 2 não impreso 
-                'alg_finalizado'    => "2",                                         //[alg_finalizado] => 1 - Aluguel Não Finalizado || 2 - Ajustes || 3 - Retirada || 4 - Devolução || 5 - Aluguel Finalizado
-                'alg_atendente'     => $dados['atendente'],                         //
-            );
-            
-            if(array_key_exists("entrada2", $dados)){
-                $data['alg_entrada'] = $this->formatBdValor($dados['entrada'] + $dados['entrada2']);     //[alg_entrada] => valor de entrada
-                $data['alg_formaEntrada'] = '0';                 //[alg_formaEntrada] => identificação da forma de pagamento da entrada
-                $data['alg_obs'] .= "Entrada|" . $dados['formaEntrada'] . "¬" . $this->formatBdValor($dados['entrada']) . "¬" . date('Y-m-d')."#Entrada|" . $dados['formaEntrada2'] . "¬" . $this->formatBdValor($dados['entrada2']) . "¬" . date('Y-m-d');
-                $data['alg_resto'] = $this->formatBdValor($dados['total'] - ($dados['entrada'] + $dados['entrada2']));
-            }else{
-                $data['alg_entrada'] = $this->formatBdValor($dados['entrada']);     //[alg_entrada] => valor de entrada
-                $data['alg_formaEntrada'] = $dados['formaEntrada'];                      //[alg_formaEntrada] => identificação da forma de pagamento da entrada
-                $data['alg_obs'] = "Entrada|" . $dados['formaEntrada'] . "¬" . $this->formatBdValor($dados['entrada']) . "¬" . date('Y-m-d');
-                $data['alg_resto'] = $this->formatBdValor($dados['total'] - ($dados['entrada']));
-            }
-            
-            if($dados['desconto'] > 0){
-                $data['alg_obs'] .= "#Desconto|-1¬" . $this->formatBdValor($dados['desconto']) . "¬" . date('Y-m-d'); 
-                $data['alg_resto'] = $this->formatBdValor($data['alg_resto'] - ($dados['desconto']));
-            }
-            $a = $this->db->insert('aluguelTie', $data);
-     
-            if (!empty($a)) { 
-                $this->db->where('alg_chaveLocacao', $dados['chaveLocacao']);
-                $z = $this->db->get('aluguelTie')->result_array();
-                foreach ($z as $upd) {
-                    $contrato = date('Ymd').rand(0,99);
-                    $this->db->where('alg_id', $upd['alg_id']);
-                    $aux = $this->db->get('aluguelTie')->row_array();
-                    $aux['alg_finalizado'] = 2;
-                    $aux['alg_locnumero'] = $contrato;
-                    $this->db->replace('aluguelTie', $aux);
-                }
-                return $this->db->insert_id();
-            } else {
-                return false;
-            }
-        }else{
-            if(array_key_exists("entrada2", $dados)){
-                $zx['alg_entrada'] = $this->formatBdValor($dados['entrada'] + $dados['entrada2']);     //[alg_entrada] => valor de entrada
-                $zx['alg_formaEntrada'] = '0';                 //[alg_formaEntrada] => identificação da forma de pagamento da entrada
-                $zx['alg_obs'] .= "#Parcial|" . $dados['formaEntrada'] . "¬" . $this->formatBdValor($dados['entrada']) . "¬" . date('Y-m-d')."#Parcial|" . $dados['formaEntrada2'] . "¬" . $this->formatBdValor($dados['entrada2']) . "¬" . date('Y-m-d');
-                $zx['alg_resto'] = $this->formatBdValor($dados['total'] - ($dados['entrada'] + $dados['entrada2']));
-            }else{
-                $zx['alg_entrada'] = $this->formatBdValor($dados['entrada']);     //[alg_entrada] => valor de entrada
-                $zx['alg_formaEntrada'] = $dados['formaEntrada'];                      //[alg_formaEntrada] => identificação da forma de pagamento da entrada
-                $zx['alg_obs'] .= "#Parcial|" . $dados['formaEntrada'] . "¬" . $this->formatBdValor($dados['entrada']) . "¬" . date('Y-m-d');
-                $zx['alg_resto'] = $this->formatBdValor($dados['total'] - ($dados['entrada']));
-            }
-            
-            if($dados['desconto'] > 0){
-                $zx['alg_obs'] .= "#Desconto|-1¬" . $this->formatBdValor($dados['desconto']) . "¬" . date('Y-m-d'); 
-                $zx['alg_resto'] = $this->formatBdValor($data['alg_resto'] - ($dados['desconto']));
-            }
-            $this->db->where('alg_id', $zx['alg_id']);
-            return $this->db->update('aluguelTie', $zx);
+        $pgt = "";
+        if(!empty($dados['entrada'])){
+            $pgt .= "Entrada|".$dados['formaEntrada']."¬".$dados['entrada']."¬".date('Y-m-d H:i:s');
         }
+        if(!empty($dados['entrada2'])){
+            $pgt .= "#Entrada|".$dados['formaEntrada2']."¬".$dados['entrada2']."¬".date('Y-m-d H:i:s');
+        }
+        if(!empty($dados['desconto'])){
+            $pgt .= "#Desconto|Desconto¬".$dados['desconto']."¬".date('Y-m-d H:i:s');
+        }
+        
+        if($dados['contrato'] == true ){
+            $contrato = 1;
+        }else{
+            $contrato = 0;
+        }
+        
+        $this->db->where('atr_chavelocacao_alg', $dados['chaveLocacao']);
+        $loc = $this->db->get('aluguelTieResumo')->row_array();
+        
+        $loc['atr_pagamentos']  = $pgt;
+        $loc['atr_observacoes'] = $dados['observações'];
+        $loc['atr_status']      = 2;
+        $loc['atr_atendente']   = $dados['atendente'];
+        $loc['atr_contrato']    = $contrato;
+        $loc['atr_contratonum'] = date("Ymd").str_pad(rand(0,99), 2, "0", STR_PAD_LEFT);
+        
+        $this->db->where('atr_id', $loc['atr_id']);
+        $this->db->update('aluguelTieResumo', $loc);
+        
     }
-
-    function gravaLocacao($dados)
-    {
-
+    function gravaLocacao($dados){
         if (strpos($dados['locador'], "C") !== false) {
             $nivel = "clienteTie";
             $this->db->where('clt_fingerprint', $dados['keyClt']);
@@ -673,7 +586,11 @@ class Reservasmodel extends CI_Model{
         } else {
             $chave = md5(date('YmdHms'));
         }
-
+        
+        $this->db->select('produto_valor');
+        $this->db->where('produto_id', $dados['traje']);
+        $valor = $this->db->get('produtos')->row_array();
+        
         $a = array(
             'alg_chaveCliente'      => $dados['keyClt'],
             'alg_chaveLocacao'      => $chave,
@@ -684,33 +601,43 @@ class Reservasmodel extends CI_Model{
             'alg_retirada'          => $this->formatBdDate($dados['retirada']),
             'alg_devolucao'         => $this->formatBdDate($dados['devolucao']),
             'alg_trajes'            => $dados['traje'],
-            'alg_entrada'           => null,
-            'alg_formaEntrada'      => null,
-            'alg_resto'             => null,
-            'alg_contrato'          => false,
-            'alg_finalizado'        => 1,
+            'alg_total'             => $valor['produto_valor'],
             'alg_obs'               => $dados['obs'],
         );
-
+        
         $this->db->insert('aluguelTie', $a);
+        
+        $this->db->where('atr_chavelocacao_alg', $a['alg_chaveLocacao']);
+        $loc = $this->db->get('aluguelTieResumo')->row_array();
+        if(empty($loc)){
+            $locacao = array(
+                'atr_chavelocacao_alg'      => $a['alg_chaveLocacao'],
+                'atr_chaveCliente_clt'      => $dados['keyClt'],
+                'atr_valorBruto'            => $valor['produto_valor'],
+                'atr_retirada'              => $this->formatBdDate($dados['retirada']),
+                'atr_devolucao'             => $this->formatBdDate($dados['devolucao']),
+                );
+            
+            $this->db->insert('aluguelTieResumo', $locacao);
+        }else{
+            $loc['atr_valorBruto'] = (float)$loc['atr_valorBruto'] + (float)$valor['produto_valor'];
+            
+            $this->db->where('atr_id', $loc['atr_id']);
+            $this->db->update('aluguelTieResumo', $loc);
+        }
+        
         return $a['alg_chaveLocacao'];
     }
-
-    function formatBdDate($valor)
-    {
+    function formatBdDate($valor){
         //return date("Y-m-d", strtotime(str_replace("/", "-", $valor)));
         return date("Y-m-d", strtotime($valor));
     }
-
-    function formatBdValor($valor)
-    {
+    function formatBdValor($valor){
         $valor = str_replace("R$ ", "", $valor);
         $valor = str_replace(",", ".", $valor);
         return $valor;
     }
-
-    public function getAllAluguelFilter($filter)
-    {
+    public function getAllAluguelFilter($filter){
         $this->db->distinct();
         $this->db->select('alg_chaveLocacao');
         $this->db->from('aluguelTie alg');
@@ -800,9 +727,7 @@ class Reservasmodel extends CI_Model{
         return $result;
         
     }
-
-    public function getAllAluguel($config, $filter)
-    {
+    public function getAllAluguel($config, $filter){
 
         $this->db->distinct();
         $this->db->select('alg_chaveLocacao');
@@ -874,9 +799,7 @@ class Reservasmodel extends CI_Model{
 
         return $result;
     }
-
-    public function viewdb() 
-    {
+    public function viewdb() {
         $this->db->distinct();
         $this->db->select('alg_chaveLocacao');
         $this->db->where_not_in('alg_finalizado', ['1','6']);
@@ -896,7 +819,6 @@ class Reservasmodel extends CI_Model{
             }
         }
     }
-
     public function getAluguel($id){
         $this->db->select('al.*, ct.clt_cpf as alg_chaveCliente');
         $this->db->from('aluguelTie al');
@@ -905,7 +827,6 @@ class Reservasmodel extends CI_Model{
         $a = $this->db->get()->row_array();
         return $a;
     }
-
     public function getAluguelById($chave){
         $this->db->where('alg_id', $chave);
         $a = $this->db->get('aluguelTie')->row_array();
@@ -915,17 +836,13 @@ class Reservasmodel extends CI_Model{
         
         return $a;
     }
-
-    function renomeiaOpcao($id)
-    {
+    function renomeiaOpcao($id){
         $this->db->select('opcao_nome');
         $this->db->where("opcao_id", $id);
         $b = $this->db->get('opcoes')->row_array();
         return $b ? $b['opcao_nome'] : false;
     }
-
-    function contrato()
-    {
+    function contrato(){
         /*
         $this->db->where('alg_chaveLocacao', $id);
         $ctt = $this->db->get('aluguelTie')->result_array();
@@ -934,9 +851,7 @@ class Reservasmodel extends CI_Model{
         $a = $this->db->get('site')->row_array();
         return $a['sobre_loja'];
     }
-
-    function termo()
-    {
+    function termo(){
         /*
         $this->db->where('alg_chaveLocacao', $id);
         $ctt = $this->db->get('aluguelTie')->result_array();
@@ -945,20 +860,15 @@ class Reservasmodel extends CI_Model{
         $a = $this->db->get('site')->row_array();
         return $a['politica_entrega'];
     }
-    
     function getFormasPagamento(){
         $this->db->where("sta_id > 0");
         return $this->db->get('statusAgenda')->result_array();
     }
-    
     function updateFormas($dados){
         $this->db->where("sta_id", $dados['sta_id']);
         return $this->db->update('statusAgenda', $dados);
     }
-    
-    
-    function orcamento($dados)
-    {
+    function orcamento($dados){
 
         $data = array(
             'alg_chaveCliente'  => $dados['chaveCliente'],                      
@@ -994,7 +904,6 @@ class Reservasmodel extends CI_Model{
             return false;
         }
     }
-    
     function getStatusAgenda($id){
         $this->db->where('sta_ativo', 1);
         $this->db->where('sta_id >', 0);
@@ -1003,15 +912,13 @@ class Reservasmodel extends CI_Model{
         
         return $a;
     }
-    
     function listaTudo(){
-        $this->db->where('alg_nivel_cliente', 'aluguel');
-        $this->db->where_not_in('alg_finalizado', 1);
-        $this->db->where_not_in('alg_finalizado', 6);
-        $this->db->order_by('alg_id', 'DESC');
-        $a =  $this->db->get('aluguelTie')->result_array();
+        $this->db->where_not_in('atr_status', 1);
+        $this->db->where_not_in('atr_status', 6);
+        $this->db->order_by('atr_id', 'ASC');
+        $a =  $this->db->get('aluguelTieResumo')->result_array();
         for($i=0; $i<count($a); $i++){
-            $this->db->where('clt_fingerprint', $a[$i]['alg_chaveCliente']);
+            $this->db->where('clt_fingerprint', $a[$i]['atr_chaveCliente_clt']);
             $c = $this->db->get('clienteTie')->row_array();
             if(!empty($c)){
                 $a[$i]['cliente'] = $c['clt_nome'];
@@ -1022,32 +929,23 @@ class Reservasmodel extends CI_Model{
                 $a[$i]['telefone'] = "Não informado";
                 $a[$i]['cpf'] = "Não informado";
             }
-            $a[$i]['alg_id'] = $i+1;
-            $a[$i]['alg_tipo'] = $this->tipo($a[$i]['alg_tipo']);
-            $a[$i]['alg_finalizado'] = $this->status($a[$i]['alg_finalizado']);
-            $a[$i]['alg_efetivado'] = $this->dataView($a[$i]['alg_efetivado']);
-            $a[$i]['alg_retirada'] = $this->dataView($a[$i]['alg_retirada']);
-            $a[$i]['alg_devolucao'] = $this->dataView($a[$i]['alg_devolucao']);
-            $a[$i]['periodo'] = $a[$i]['alg_retirada']." à ".$a[$i]['alg_devolucao'];
-            $a[$i]['alg_total'] = "R$ ".$this->moneyMask($a[$i]['alg_total']);
-            unset($a[$i]['alg_chaveCliente']);
-            unset($a[$i]['alg_nivel_cliente']);
-            unset($a[$i]['alg_locador']);
-            unset($a[$i]['alg_locador_id']);
-            unset($a[$i]['alg_trajes']);
-            unset($a[$i]['alg_entrada']);
-            unset($a[$i]['alg_formaEntrada']);
-            unset($a[$i]['alg_resto']);
-            unset($a[$i]['alg_contrato']); 
-            unset($a[$i]['alg_obs']);
-            unset($a[$i]['alg_atendente']);
-            if($a[$i]['alg_id'] <10){
-                $a[$i]['alg_id'] = "0".$a[$i]['alg_id'];
-            }
+            $a[$i]['atr_contratonum'];
+            $a[$i]['atr_chavelocacao_alg'];
+            $a[$i]['atr_chaveCliente_clt'];
+            $a[$i]['atr_valorBruto'] = "R$".$this->moneyMask($a[$i]['atr_valorBruto']);
+            $a[$i]['atr_pagamentos'];
+            $a[$i]['atr_observacoes'];
+            $a[$i]['atr_locacao'] = $this->dataView($a[$i]['atr_locacao']);
+            $a[$i]['atr_retirada'] = $this->dataView($a[$i]['atr_retirada']);
+            $a[$i]['atr_devolucao'] = $this->dataView($a[$i]['atr_devolucao']);
+            $a[$i]['atr_devolucaoreal'] = $this->dataView($a[$i]['atr_devolucaoreal']);
+            $a[$i]['atr_status'];
+            $a[$i]['atr_atendente'];
+            $a[$i]['atr_contrato'];
+            $a[$i]['periodo'] = $a[$i]['atr_retirada']. " até ".$a[$i]['atr_devolucao'];
         }
         return $a;
     }
-    
     function listaPendente(){
         $this->db->where('alg_nivel_cliente', 'pendente');
         $this->db->where('alg_finalizado', 1);
@@ -1066,7 +964,6 @@ class Reservasmodel extends CI_Model{
                 $a[$i]['cpf'] = "Não informado";
             }
             $a[$i]['alg_id'] = $i+1;
-            $a[$i]['alg_tipo'] = $this->tipo($a[$i]['alg_tipo']);
             $a[$i]['alg_finalizado'] = $this->status($a[$i]['alg_finalizado']);
             $a[$i]['alg_efetivado'] = $this->dataView($a[$i]['alg_efetivado']);
             $a[$i]['alg_retirada'] = $this->dataView($a[$i]['alg_retirada']);
@@ -1089,7 +986,6 @@ class Reservasmodel extends CI_Model{
         }
         return $a;
     }
-    
     function status($id){
         if($id == 1){
             $id = "Não Finalizado";
@@ -1128,7 +1024,6 @@ class Reservasmodel extends CI_Model{
         $valor = str_replace(".", ",", $valor);
         return $valor;
     }
-    
     public function dadosAluguel($id){
         $this->db->where('alg_chaveLocacao', $id);
         $a = $this->db->get('aluguelTie')->row_array();
@@ -1143,7 +1038,6 @@ class Reservasmodel extends CI_Model{
         );
         return $dados;
     }
-    
     public function getDadosClienteDependente($dados){
             $this->db->where($dados['busca'], $dados['valor']);
             $a = $this->db->get('clienteTie')->row_array();
@@ -1203,7 +1097,6 @@ class Reservasmodel extends CI_Model{
 
         return $data;
     }
-    
     public function retrieveLocacaoKey($chave){
         //SELECT * FROM `aluguelTie` WHERE `alg_nivel_cliente` = 'aluguel' AND `alg_chaveLocacao` = 'b960a9dd5e86c8aade260f449eaf6fd7'
         $this->db->where('alg_nivel_cliente', 'aluguel');
@@ -1237,7 +1130,6 @@ class Reservasmodel extends CI_Model{
         
         return $dados;
     }
-    
     function valorPago($id){
         //SELECT * FROM `aluguelTie` WHERE `alg_nivel_cliente` = 'aluguel' AND `alg_chaveLocacao` = 'b960a9dd5e86c8aade260f449eaf6fd7'
         $this->db->where('alg_nivel_cliente', 'aluguel');
@@ -1261,7 +1153,6 @@ class Reservasmodel extends CI_Model{
         }
         return $total;
     }
-    
     function gravaPendente($id){
         $this->db->where('alg_chaveLocacao', $id);
         $a = $this->db->get('aluguelTie')->row_array();
@@ -1285,7 +1176,6 @@ class Reservasmodel extends CI_Model{
         return $this->db->insert_id();
 
     }
-    
     function listaFiltro($filtro){
         if($filtro == 'pendentes'){
             $this->db->where('alg_nivel_cliente', 'pendente');
@@ -1341,4 +1231,234 @@ class Reservasmodel extends CI_Model{
         }
         return $a;
     }
+    
+    
+    /*
+    funções 10/10/2022
+    Anderson Moreira
+    */
+    function listareservas($limit, $start, $filter){
+        
+        /*if($filter){
+            $this->db->like('', $filter, 'both');
+            $this->db->or_like('', $filter, 'both');
+            $this->db->or_like('', $filter, 'both');
+            $this->db->or_like('', $filter, 'both');
+            $this->db->or_like('', $filter, 'both');
+        }*/
+        $this->db->limit($limit, $start);
+        $this->db->order_by('atr_id', 'ASC');
+        $aux = $this->db->get('aluguelTieResumo')->result_array();
+        $data = array();
+        $no = $start;
+        for($i = 0; $i < count($aux); $i++){
+            $this->db->where('clt_fingerprint', $aux[$i]['atr_chaveCliente_clt']);
+            $cliente = $this->db->get('clienteTie')->row_array();
+            $aux[$i]['atr_retirada'] = $this->dataView($aux[$i]['atr_retirada']);
+            $aux[$i]['atr_devolucao'] = $this->dataView($aux[$i]['atr_devolucao']);
+            $row = array();
+            // $row[] = $aux[$i]['atr_contratonum'];
+            $row[] = $this->dataView($aux[$i]['atr_locacao']);
+            $row[] = $cliente['clt_nome'];
+            // $row[] = $cliente['clt_cpf'];
+            // $row[] = $cliente['clt_cel'];
+            $row[] = $aux[$i]['atr_retirada']. " até ".$aux[$i]['atr_devolucao'];;
+            $row[] = "<select class='form-select-lg' id='status' name='status' onchange='updtStatus(this.value, `".$aux[$i]['atr_chavelocacao_alg']."`)' style='border:thin;'>
+                        <option value='1'>Nova Reserva</option>
+                        <option value='2'>Costura</option>
+                        <option value='3'>Montagem</option>
+                        <option value='4'>Ag. Retirada</option>
+                        <option value='4'>Retirado</option>
+                        <option value='4'>Ag. Devolução</option>
+                        <option value='5'>Não Devolvido</option>
+                        <option value='6'>Devolvido</option>
+                        <option value='7'>Concluso</option>
+                        <option value='8'>Cancelado</option>
+                    </select>";
+            $row[] = '<div><a class="text-center w100 show-value" onclick="showValue()"><i class="fa fa-eye text-dark" style="font-size: 1.8rem"></i></a><div class="hide-value d-none" onclick="hideValue()">R$'. $this->moneyMask($aux[$i]['atr_valorBruto']).'</div></div>';
+            $row[] = '<div><a class="text-center w100 show-value" onclick="showValue()"><i class="fa fa-eye text-dark" style="font-size: 1.8rem"></i></a><div class="hide-value d-none" onclick="hideValue()">R$'. $this->moneyMask($aux[$i]['atr_valorBruto']).'</div></div>';
+            $row[] = "  <a href='#' onclick='detalhes(`".$aux[$i]['atr_chavelocacao_alg']."`)'><i class='fa fa-eye fa-1x text-dark' aria-hidden='true' style='padding-left: 14px; font-size: 1.8rem;'></i></a>
+                        <a href='#' onclick='multa(`".$aux[$i]['atr_chavelocacao_alg']."`)'><i class='fa fa-money fa-1x text-dark' aria-hidden='true' style='padding-left: 14px; font-size: 1.8rem;'></i></a>
+                        <a href='#' onclick='imprimir(`".$aux[$i]['atr_chavelocacao_alg']."`)'><i class='fa fa-print fa-1x text-dark' aria-hidden='true' style='padding-left: 14px; font-size: 1.8rem;'></i></a>
+                        <a href='#' onclick='excluirpedido(`".$aux[$i]['atr_chavelocacao_alg']."`)'><i class='fa fa-trash fa-1x text-dark' aria-hidden='true' style='padding-left: 14px; font-size: 1.8rem;'></i></a>";
+            $data[] = $row;
+        }
+        return $data;
+    }
+    public function reservasCount(){
+        return $this->db->get('aluguelTieResumo')->num_rows();
+    }
+    function getDadosLocacao($id){
+        //DADOS DA LOCAÇÃO
+        $this->db->where('atr_chavelocacao_alg', $id);
+        $a = $this->db->get('aluguelTieResumo')->row_array();
+        
+        //DADOS DO CLIENTE
+        $this->db->where('clt_fingerprint', $a['atr_chaveCliente_clt']);
+        $b = $this->db->get('clienteTie')->row_array();
+        $cliente = array(
+                'nome'      => $b['clt_nome'],
+                'nick'      => $b['clt_apelido'],
+                'cpf'       => $b['clt_cpf'],
+                'cel'       => $b['clt_cel'],
+                'address'   => $b['clt_logra'],
+                'city'      => $b['clt_city'],
+                'city'      => $b['clt_city'],
+                'num'       => $b['clt_num'],
+                'dist'      => $b['clt_prov'],
+                'city'      => $b['clt_city'],
+                'uf'        => $b['clt_uf'],
+                'cep'       => $b['clt_cep'],
+                'comp'      => $b['clt_comp'],
+                'token'     => $b['clt_fingerprint'],
+            );
+        
+        //DADOS DE PAGAMENTOS
+        $pagamento = "";
+        $total = $multa = 0;
+        $group = explode("#", $a['atr_pagamentos']);
+        for($i=0; $i<count($group); $i++){
+            $aux = explode("|", $group[$i]);
+            $helper = explode("¬", $aux[1]);
+            if($helper[0] == "-1"){
+                $helper[0] = "Desconto";
+            }else{
+                $this->db->where('id_forma', $helper[0]);
+                $Qw = $this->db->get('formas_pagamento')->row_array();
+                $helper[0] = $Qw['nome_forma'];
+            }
+            $pagamento .= "<tr>
+                            <th scope='row'>".($i+1)."</th>
+                            <td> R$ ".$helper[1]."</td>
+                            <td>".$helper[2]."</td>
+                            <td>".$aux[0]."</td>
+                            <td>".$helper[0]."</td>
+                        </tr>";
+            if($aux[0] != "Multa"){
+                $total = (float)$total + (float)$helper[1];
+            }else{
+                $multa = (float)$multa + (float)$helper[1];
+            }
+        }
+            
+        // DADOS DOS TRAJES DA LOCAÇÃO
+        $this->db->where('alg_chaveLocacao', $id);
+        $this->db->order_by('alg_id', 'DESC');
+        $c = $this->db->get('aluguelTie')->result_array();
+        $trajes = "";
+        $count = 0;
+        $status = $a['atr_status'];
+        foreach($c as $evt){
+            $count++;
+            $this->db->where('produto_id', $evt['alg_trajes']);
+            $k = $this->db->get('produtos')->row_array();
+                            
+            $trajes .= " <tr>
+                            <th scope='row'>".$count."</th>
+                            <td>".ucfirst($k['produto_nome'])."</td>
+                            <td>".$this->formatViewVariacao($k['produto_tamanhos'])."</td>
+                            <td>".$this->formatViewVariacao($k['produto_cores'])."</td>
+                            <td>R$ ".$this->formatViewValor($k['produto_valor'])."</td>
+                        </tr>
+                        <tr style='border-bottom: 2px'>
+                            <td class='py-4' colspan='3'><strong>".$evt['alg_locador'] . $evt['alg_obs']."</strong></td>
+                            <td colspan='2'>
+                                <select class='form-select form-select-lg w-auto float-end' name='situacao' id='situacao' onchange='mudaStatus(".$evt['alg_id'].")'>";
+                                if($evt['alg_finalizado'] == 1){
+                                    $trajes .= "<option value='1' selected>Pendente</option>
+                                    <option value='2'>Ajustes</option>
+                                    <option value='3'>Retirada</option>
+                                    <option value='4'>Devolução</option>
+                                    <option value='5'>Finalizado</option>
+                                    <option value='7'>Cancelado</option>";
+                                }else if($evt['alg_finalizado'] == 2){
+                                    $trajes .= "<option value='2' selected>Ajustes</option>
+                                    <option value='3'>Retirada</option>
+                                    <option value='4'>Devolução</option>
+                                    <option value='5'>Finalizado</option>
+                                    <option value='7'>Cancelado</option>";
+                                }else if($evt['alg_finalizado'] == 3){
+                                    $trajes .= "<option value='2' disabled>Ajustes</option>
+                                    <option value='3' selected>Retirada</option>
+                                    <option value='4'>Devolução</option>
+                                    <option value='5'>Finalizado</option>
+                                    <option value='7'>Cancelado</option>";
+                                }else if($evt['alg_finalizado'] == 4){
+                                    $trajes .= "<option value='2' disabled>Ajustes</option>
+                                    <option value='3' disabled>Retirada</option>
+                                    <option value='4' selected>Devolução</option>
+                                    <option value='5'>Finalizado</option>
+                                    <option value='7'>Cancelado</option>";
+                                }else if($evt['alg_finalizado'] == 5){
+                                    $trajes .= "<option value='2'>Ajustes</option>
+                                    <option value='3' disabled>Retirada</option>
+                                    <option value='4' disabled>Devolução</option>
+                                    <option value='5' selected>Finalizado</option>
+                                    <option value='7'>Cancelado</option>";
+                                }
+            $trajes .="         </select>
+                            </td>
+                        </tr>";
+            if($status < $evt['alg_finalizado']){
+                $status = $evt['alg_finalizado'];
+            }
+        }
+        
+        // DADOS DE VALORES DA LOCAÇÃO
+        $valores = array(
+            'total'         => "R$ ".$this->formatViewValor((float)$a['atr_valorBruto']),
+            'pago'          => "R$ ".$this->formatViewValor($total),
+            'falta'         => "R$ ".$this->formatViewValor((float)$a['atr_valorBruto'] - (float)$total),
+            'remanescente'  => $this->formatViewValor((float)$a['atr_valorBruto'] - (float)$total),
+            'multa'         => "R$ ".$this->formatViewValor($multa),
+            'totalGeral'    => "R$ ".$this->formatViewValor((float)$total + (float)$multa),
+        );
+        
+        // DADOS DAS DATAS DE LOCAÇÃO
+        $this->db->where('sta_id', '2');
+        $ajuste = $this->db->get('statusAgenda')->row_array();
+        $ajuste = $ajuste['sta_dias'];
+        if(strtotime(date('Y-m-d', strtotime($a['atr_devolucao']))) < strtotime(date('Y-m-d'))){
+            if($a['atr_status'] == 5 ){ 
+                $atraso = true;
+            }else{
+                $atraso = false;
+            }
+        }else{
+            $atraso = false;
+        }
+        $datas = array(
+            'locacao'   => date("d/m/Y", strtotime($a['atr_locacao'])),
+            'devolucao' => date("d/m/Y", strtotime($a['atr_devolucao'])),
+            'prova'     => date('d/m/Y', (strtotime('-'.$ajuste.' day', strtotime($a['atr_retirada'])))),
+            'total'     => "R$ ".$a['atr_valorBruto'],
+            'atraso'    => $atraso,
+        );
+        
+        
+        
+        $locacao = array(
+            'id'        => $a['atr_chavelocacao_alg'],
+            'cliente'   => $cliente,
+            'pagamento' => $pagamento,
+            'locacao'   => $trajes,
+            'valores'   => $valores,
+            'datas'     => $datas,
+            'status'    => $status,
+            'statusTxt' => $this->status($status),
+            );
+        
+        return $locacao;
+    }
+    
+    function formatViewValor($valor){
+        $valor = number_format($valor, 2, ',', '');
+        return $valor;
+    }
+    function formatViewVariacao($id){
+        $this->db->where("opcao_id", $id);
+        $a = $this->db->get('opcoes')->row_array();
+        return $a['opcao_nome'];
+    }
+    
 }

@@ -1,10 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Modelauxiliar extends CI_Model {
-    
-    /*Funções criadas em 17-08-2022 referentes aos retornos de dados da página inicial - DashBoard
-        Anderson Moreira
-    */
+
     function newLocacao($dias){
         
         if($dias == 0){
@@ -41,7 +38,6 @@ class Modelauxiliar extends CI_Model {
         
         return number_format($total[0]["total"],2,",","") ;
     }
-
     function concluidas($dias){
        
         if($dias == 0){
@@ -54,7 +50,6 @@ class Modelauxiliar extends CI_Model {
         
         return number_format($total[0]["total"],2,",","") ;
     }
-    
     function pendencias($dias){
         
         if($dias == 0){
@@ -62,25 +57,19 @@ class Modelauxiliar extends CI_Model {
             $this->db->where('alg_retirada = ', $data);
         }else{
             $total =  $this->db->query('SELECT alg_total FROM aluguelTie  WHERE  alg_retirada  between  "'.date('Y/m/d', strtotime("- ".$dias." days")).'" AND "'.date('Y/m/d').'" AND alg_finalizado=1  ;')->result_array();
-            
         }
-       
-        
-        return count($total) ;
+        //return count($total) ;
     }
-    
     function atrasos($dias){
         if($dias == 0){
             $data = date('Y-m-d', strtotime("+".$dias."days",strtotime(date('Y-m-d'))));
             $this->db->where('alg_retirada = ', $data);
         }else{
             $total =  $this->db->query('SELECT alg_id FROM aluguelTie  WHERE  alg_retirada  between  "'.date('Y/m/d', strtotime("- ".$dias." days")).'" AND "'.date('Y/m/d').'" AND alg_retirada < "'.date('Y/m/d').'" AND alg_finalizado=1  ;')->result_array();
-            
         }
         
-        return count($total) ;
+        //return count($total) ;
     }
-    
     function ajustes($dias){
         if($dias == 0){
             $data = date('Y-m-d', strtotime("+".$dias."days",strtotime(date('Y-m-d'))));
@@ -90,9 +79,8 @@ class Modelauxiliar extends CI_Model {
             
         }
         
-        return count($total) ;
+        //return count($total) ;
     }
-    
     function retiradas($dias){
         if($dias == 0){
             $data = date('Y-m-d', strtotime("+".$dias."days",strtotime(date('Y-m-d'))));
@@ -102,9 +90,8 @@ class Modelauxiliar extends CI_Model {
             
         }
         
-        return count($total) ;
+        //return count($total) ;
     }
-    
     function locacoes($dias){
         if($dias == 0){
             $data = date('Y-m-d', strtotime("+".$dias."days",strtotime(date('Y-m-d'))));
@@ -149,17 +136,14 @@ class Modelauxiliar extends CI_Model {
         }
         return $dados;
     }
-    
     function formatPeriodo($retira, $devolve){
         $txt = "Retirada em ".$this->formatData($retira).", com devolução prevista em ".$this->formatData($devolve).".";
         return $txt;
     }
-    
     function formatData($data){
         $data = date("d/m/Y", strtotime($data));
         return $data;
     }
-    
     function dadosCliente($id){
         
         $this->db->select("clt_nome as nome, clt_tel as fone");
@@ -197,7 +181,6 @@ class Modelauxiliar extends CI_Model {
         }
         return $aux;
     }
-    
     function listaTudo($dias){
         if($dias == 0){
             $data = date('Y-m-d', strtotime("+".$dias."days",strtotime(date('Y-m-d'))));
@@ -247,8 +230,89 @@ class Modelauxiliar extends CI_Model {
         
         return $a;
     }
-    /*FIM Funções criadas em 17-08-2022 referentes aos retornos de dados da página inicial - DashBoard 
-        Anderson Moreira
-    */
+    
+    
+    function getBruto($dias){
+        $this->db->where_not_in('atr_status', 1);
+        $this->db->or_where_not_in('atr_status', 8);
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        $aux = 0;
+        for($i=0; $i<count($a); $i++){
+            $aux = (float)$aux + (float)$a[$i]['atr_valorBruto'];
+        }
+        return number_format($aux, 2, ',', ' ');
+    }
+    function getLiquido($dias){
+        $this->db->where_not_in('atr_status', 1);
+        $this->db->or_where_not_in('atr_status', 8);
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        $aux = 0;
+        for($i=0; $i<count($a); $i++){
+            $helper = explode("#", $a[$i]['atr_pagamentos']);
+            for($j=0; $j<count($helper); $j++){
+                $h = explode("|", $helper[$j]);
+                if($h[0] != 'Desconto'){
+                    $h = explode("¬", $h[1]);
+                    $aux = (float)$aux + (float)$h[1];
+                }
+            }
+        }
+        return number_format($aux, 2, ',', ' ');
+    }
+    function getIncompleto($dias){
+        $this->db->where('atr_status', 1);
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        
+        return count($a);
+    }
+    function getLocacao($dias){
+        $this->db->where_not_in('atr_status', 1);
+        $this->db->or_where_not_in('atr_status', 8);
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        return count($a);
+    }
+    function getCancelado($dias){
+        $this->db->where('atr_status', 8);
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        
+        return count($a);
+    }
+    function getNaoRetirado($dias){
+        $this->db->where('atr_status', 3);
+        $this->db->where('atr_retirada <', date('Y-m-d 00:00:00'));
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        
+        return count($a);
+    }
+    function getAjustes($dias){
+        $this->db->where('atr_status', 2);
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        
+        return count($a);
+    }
+    function getAguardaRetirada($dias){
+        $this->db->where('atr_status', 3);
+        $a = $this->db->get('aluguelTieResumo')->result_array();
+        
+        return count($a);
+    }
+    function getMaisLocado($dias){
+        $a = 666;
+        return $a;
+    }
+    function getUltLocado($dias){
+        $a = 666;
+        return $a;
+    }
+    function getPagamentos($dias){
+        $a = array( 
+            array('FORMA DE PAGAMENTO', 'RECORRENCIA',),
+            array('PIX', 10,),
+            array('BOLETO', 2,),
+            array('CREDITO', 8,),
+            array('DEBITO', 3,),
+        );
+        return $a;
+    }
     
 }

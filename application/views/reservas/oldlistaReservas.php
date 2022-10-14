@@ -393,14 +393,13 @@
                         <table id="reserva-list">
                             <thead>
                                 <tr>
-                                    <!--<th class="col"> Nº Locação</th>-->
+                                <th class="col"> Nº Locação</th>
                                     <th class="col"> Data</th>
                                     <th class="col"> Cliente</th>
-                                    <!--<th class="col"> CPF</th>-->
-                                    <!--<th class="col"> Telefone</th>-->
+                                    <th class="col"> CPF</th>
+                                    <th class="col"> Telefone</th>
                                     <th class="col"> Periodo Locação</th>
                                     <th class="col"> Status</th>
-                                    <th class="col"> Pago</th>
                                     <th class="col"> Total</th>
                                     <th class="col-2"> Ações</th>
                                 </tr>
@@ -818,16 +817,6 @@
 
 <!-- FUNÇÕES DE DATATABLE AJAX -->
 <script>
-
-    function showValue () {
-        $(this).find('div.hide-value').removeClass('d-none');
-        $(this).addClass('d-none');
-    }
-    function hideValue () {
-        $(this).next('div.show-value').addClass('d-none');
-        $(this).removeClass('d-none');
-    }
-
     var dtLanguageJSON = {
         "emptyTable": "Nenhum registro encontrado",
         "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -1073,45 +1062,23 @@
         }
     };
     $(document).ready(function() {
-        
-        
         $('#reserva-list').DataTable({
             paging: true,
             info: true,
+            searching: false,
             processing: true,
             serverSide: true,
-            searching: true,
-            dom: '<"top"f>rt<"bottom d-flex justify-content-between align-items-center"lip><"clear">',
             order: [],
             ajax: {
                 url: "<?php echo site_url('exibeReservas') ?>",
                 type: "POST"
             },
-            columns: [
-                { data: '0' },
-                { data: '1' },
-                { data: '2' },
-                { data: '3' },
-                { data: '4', class:'number-hide' },
-                { data: '5', class:'number-hide' },
-                { data: '6' },
-            ],
             columnDefs: [{
                 "targets": [0],
                 "orderable": true,
             },],
             language: dtLanguageJSON,
         });
-        
-        setTimeout(function(){  
-            $( "select[name='reserva-list_length']" ).removeClass('input-sm'); 
-        }, 1000);
-        
-        $('[type=search]').each(function () {
-            $(this).attr("placeholder", "Pesquisar...");
-            $(this).before('<span class="fa fa-search"></span>');
-        });
-    
     });
 </script>
 <!-- FIM FUNÇÕES DE DATATABLE AJAX -->
