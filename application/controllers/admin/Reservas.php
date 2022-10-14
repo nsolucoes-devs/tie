@@ -20,14 +20,8 @@ class Reservas extends Admin_Controller
     }
 
     public function listagem(){
-        if(array_key_exists('filtro', $_POST) == true){
-            $data['lista'] = $this->reservasmodel->listaFiltro($_POST['filtro']);
-        }else{
-            $data['lista'] = $this->reservasmodel->listaTudo();
-        }
-        $data['pagamentos'] = $this->reservasmodel->pagamentos();
         $this->header();
-        $this->load->view('reservas/listaReservas', $data);
+        $this->load->view('reservas/listaReservas');
         //$this->load->view('reservas/reservas');
         $this->footer();
     }
@@ -247,6 +241,21 @@ class Reservas extends Admin_Controller
         }
     }
     
+    public function aluguelNEW(){
+       // samoel();
+        $data['trajes'] = $this->reservasmodel->trajesDept();
+        $data['tamanhos'] = $this->reservasmodel->tamanhos();
+        $data['cores'] = $this->reservasmodel->cores();
+        $data['usuarios'] = $this->usuarios->getUsuarios();
+        $data['status'] = $this->reservasmodel->getStatusAgenda('devolucao');
+
+        $data['imagens'] = getFotos();
+        $data['background'] = 'hsl(0 0% 68%)';
+        $data['colorbtn']   = 'masculino';
+
+        $this->load->view('reservas/aluguel', $data);
+    }
+    
     function findClients(){
         if (isset($_POST['busca']) && isset($_POST['valor'])) {
             $data = $this->reservasmodel->findClients($_POST);
@@ -319,12 +328,12 @@ class Reservas extends Admin_Controller
 
     function encerraAluguel(){
         $a =  $this->reservasmodel->gravaAluguel($_POST);
-        $this->smsmodel->sendSms($a);
+        /*//$this->smsmodel->sendSms($a);
         if ($a != false) {
             echo $a;
         } else {
             echo false;
-        }
+        }*/
     }
 
     function gravaAluguel(){
@@ -414,5 +423,36 @@ class Reservas extends Admin_Controller
         $this->load->view('reservas/listaReservas', $data);
         $this->footer();
     }
+    
+    
+    /*
+    NOVAS FUNÇÕES NÃO EXLUIR NEM ALTERAR AS LINHAS EXISTENTES, COMENTEM E COLOQUEM NOVAS FUNÇÕES
+    LEMBRANDO DE COMENTAR QUEM FEZ E QUANDO FOI FEITA A ALTERAÇÃO
+    
+    ANDERSON MOREIRA
+    10/10/2022
+    */
+    public function exibeListaReservas(){
+        $limit  = $_POST['length'];
+        $filter = $_POST['search']['value'];
+        $start  = $_POST['start'];
+        $data = $this->reservasmodel->listareservas($limit, $start, $filter);
+        $all = $this->reservasmodel->reservasCount();
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $all,//numero de registros no banco
+            "recordsFiltered" => $all,//numero de registros depois de filtrado
+            "data" => $data,
+        );
+        
+        echo json_encode($output);
+    }
+    
+    function dadosLocacao(){
+	    $data = $this->reservasmodel->getDadosLocacao($_POST['busca']);
+	    echo json_encode($data);
+	} 
+    
+    
     
 }

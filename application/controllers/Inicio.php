@@ -5,6 +5,7 @@ class Inicio extends MY_Controller {
     
     public function __construct() {
         parent::__construct();
+        date_default_timezone_set('America/Sao_Paulo');
         $this->load->database();
         $this->load->model('promocoes');
 	    $this->load->model('configs');
@@ -12,6 +13,11 @@ class Inicio extends MY_Controller {
 	    $this->load->model('departamentos');
 	    $this->load->model('opcoes');
 	    $this->load->model('promocoes');
+	    $this->load->model('clientes');
+	    $this->load->model('acessomodel');
+	    $this->load->model('cadastrosmodel');
+        $this->load->model("sendemail");
+        $this->load->library('email');
 	    $this->load->library("pagination");
     }
     
@@ -25,18 +31,11 @@ class Inicio extends MY_Controller {
 	}
 	
 	public function resgataCEP(){
-	    $this->load->database();
-	    $this->load->model('clientes');
-	    
 	    $cep = $this->clientes->getCEP($this->input->post('cep'));
-	    
 	    echo json_encode($cep);
 	}
 	
 	public function inserirSolicitacao(){
-	    $this->load->database();
-	    $this->load->model('produtos');
-	    
 	    $solicitacao = array(
 	        'solicitacao_tipo'          => $this->input->post('tipo'),
 	        'solicitacao_nome'          => $this->input->post('nome'),
@@ -117,8 +116,7 @@ class Inicio extends MY_Controller {
 
 	//Função que leva para a página inicial
 	public function index(){
-	    //$this->acesso();
-	    
+		
 		$site = $this->configs->getSite();
 		$cont            = 0;
 		$relacionados    = [];
@@ -144,15 +142,7 @@ class Inicio extends MY_Controller {
             }
         }
 	    
-	    if($data['valor'] == $data['porcentagem']['precoNovo']){
-	        unset($data['porcentagem']);
-	    }else{
-	        $data['valor'] = $data['porcentagem']['precoNovo'];
-	    }
-	    
-        
-        
-		$data['produtos']   = $relacionados;
+        $data['produtos']   = $relacionados;
 	    $data['whats']      = $site['whats'];
 	    $data['site']       = $site;
 	    
@@ -162,13 +152,7 @@ class Inicio extends MY_Controller {
 	}
 	
 	public function contato(){
-	    $this->load->database();
-	    $this->load->model('configs');
-	    $this->load->model('produtos');
-	    $this->load->model('departamentos');
-	    
 		$site = $this->configs->getSite();
-		
 		$data = array(
 		    'facebook'              => $site['facebook'],
 		    'instagram'             => $site['instagram'],
@@ -195,11 +179,6 @@ class Inicio extends MY_Controller {
 	}
 	
     public function acesso(){
-        $this->load->database();
-        $this->load->model('acessomodel');
-        
-        date_default_timezone_set('America/Sao_Paulo');
-        
         $ano    =   date('Y');
         $mes    =   date('m');
         $dia    =   date('d');
@@ -232,10 +211,6 @@ class Inicio extends MY_Controller {
     }
     
     public function solicitaReembolso(){
-        $this->load->database();
-        $this->load->model('cadastrosmodel');
-        date_default_timezone_set('America/Sao_Paulo');
-        
         $titulo         = $this->upload('titulo', $this->input->post('cpf'));
         $comprovante    = $this->upload('comprovante', $this->input->post('cpf'));
         $cupom          = $this->upload('cupom', $this->input->post('cpf'));
@@ -333,8 +308,7 @@ class Inicio extends MY_Controller {
     }
     
     function enviaEmail(){
-        $this->load->database();
-        $this->load->model('configs');
+        
         $gestoremail = $this->configs->getEmail(1);
         
         $site = $this->configs->getSite();
@@ -364,8 +338,7 @@ class Inicio extends MY_Controller {
         
         $assunto = $site['nome_empresa'];
  	
-        $this->load->library('email');
-        $this->load->model("sendemail");
+        
         $mailbody = $this->sendemail->contatos($dados);
 
         $this->email->initialize($config);

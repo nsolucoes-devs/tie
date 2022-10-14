@@ -5,29 +5,22 @@ class MY_Controller extends CI_Controller {
     public function __construct(){
         parent::__construct();
         //$this->brutePGM();
-    }
-    
-    public function header($extra = null){
         $this->load->database();
 	    $this->load->model('configs');
 	    $this->load->model('departamentos');
-	    
+    }
+    
+    public function header($extra = null){
 	    $site = $this->configs->getSite();
-	    
         $dadosHeader['idpag']               = 1;
 		$dadosHeader['telefonedecontato']   = $site['whats'];
 		$dadosHeader['departamentos']       = $this->departamentos->menuDepts();
 		$dadosHeader['scrMP'] = $extra;
-		
 		$this->load->view('recursos/header', $dadosHeader);
-		
     }
     
     public function footer($extra = null){
-        $this->load->database();
-	    $this->load->model('configs');
 	    $site = $this->configs->getSite();
-	    
         $dadosFooter = array(
 		    'callback'              => $this->uri->uri_string(),
 		    'facebook'              => $site['facebook'],
@@ -160,7 +153,6 @@ class MY_Controller extends CI_Controller {
         
         $this->pagmemodel->updatePedido($trans[0]['id'], $dados);
     }
-    
 }
 
 class Admin_Controller extends MY_Controller{

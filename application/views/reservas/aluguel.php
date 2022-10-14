@@ -677,7 +677,7 @@
                                                     <div class="col-md-6 p-3">
                                                         <h3><b>Informações da Locação:</b></h3>
                                                         <div class="mt-5">
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-4 p-0">
                                                                 <label for="dataLocacao">Data Locação:</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend">
@@ -686,7 +686,7 @@
                                                                     <input type="date" id="dataLocacao" name="dataLocacao" class="form-control" data-inputmask='"mask": "99/99/9999"' data-mask readonly>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4 p-0">
+                                                            <div class="col-md-4">
                                                                 <label for="dataDevolucao">Data Devolução:</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend">
@@ -756,7 +756,7 @@
 
                 <div id="card2" class="col-md-6 mb-2">
                     <div id="card-carousel" class="card h-100">
-                        <div id="carouselExampleIndicators" class="carousel slide m-3" data-bs-ride="true">
+                        <div id="carouselExampleIndicators" class="carousel slide m-3" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <?php  for($aux = 0; $aux < count($imagens); ) { ?>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $aux ?>" <?= $aux++ != 0 ?: 'class="active"'?> aria-current="true" aria-label="Slide <?= $aux ?>"></button>
@@ -765,7 +765,7 @@
                             <div class="carousel-inner">
 
                                 <?php $aux=0; foreach($imagens as $item) { ?>
-                                    <div class="carousel-item <?= $aux++ != 0 ?: 'active' ?>">
+                                    <div class="carousel-item <?= $aux++ != 0 ?: 'active' ?>" data-bs-interval="3000">
                                         <img class="img-reserva img-rounded d-block" src="<?= $item ?>" alt="First slide">
                                     </div>
                                 <?php } ?>

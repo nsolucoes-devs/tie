@@ -2,21 +2,6 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
-    <?php
-        $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
-        $ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
-        $android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
-        $palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
-        $berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
-        $ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
-        $symbian =  strpos($_SERVER['HTTP_USER_AGENT'],"Symbian");
-        if ($iphone || $ipad || $android || $palmpre || $ipod || $berry || $symbian == true) {
-            $mobile_view = 1;
-        } else {
-            $mobile_view = 0;
-        }
-    ?>
-    
     <style>
         path[fill='#123456']{display:none !important;}
         .select2{
@@ -290,26 +275,12 @@
         
     </style>
     
-    
     <section id="main-content">
         <section class="wrapper">
-
             
             <!-- COMEÇO DO NOVO DASHBOARD -->
             
             <div class="row" style="margin: 0">
-                <div class="col-lg-6" style="display: none">
-                    <div class="form-group">
-                        <label>Loja</label>
-                        <select class="form-control" id="loja_id" onchange="diasDash(false)">
-                            <option value="all">Todas</option>
-                            <?php
-                            foreach($lojas as $loja){ ?>
-                             <option seleted value="<?php echo $loja['id'] ?>"><?php echo $loja['nome']?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
                 <div class="col-lg-12" id="newdash" style="display: block; ">
                     <div class="row">
                         <div class="col-xs-12 col-md-12 col-xl-12 col-12">
@@ -334,16 +305,18 @@
                                     <div class="c-card-icon c-aprovados">
                                         <em class="fa fa-dollar c-icon"></em>
                                     </div>
-                                    <p class="c-card-category">Locações Concluidas</p>
+                                    <p class="c-card-category">Total Locações</p>
                                     <h3 class="c-card-title">
-                                        <small>R$ <?php echo $concluidas; ?></small>
+                                        <small>R$ <?php echo $bruto; ?></small>
                                         <span id="transacao_aprovada"></span>
                                     </h3>
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('bruto')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -355,16 +328,18 @@
                                     <div class="c-card-icon c-analise">
                                         <em class="fa fa-hourglass-o c-icon"></em>
                                     </div>
-                                    <p class="c-card-category">Locações em Aberto</p>
+                                    <p class="c-card-category">Valor Recebido</p>
                                     <h3 class="c-card-title">
-                                        <small>R$ <?php echo $emAberto; ?></small>
+                                        <small>R$ <?php echo $caixa; ?></small>
                                         <span id="transacao_analise"></span>
                                     </h3>
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('caixa')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -376,16 +351,18 @@
                                     <div class="c-card-icon c-negadas">
                                         <em class="fa fa-times-circle-o c-icon"></em>
                                     </div>
-                                    <p class="c-card-category">Locações Canceladas</p>
+                                    <p class="c-card-category">Locações em Aberto</p>
                                     <h3 class="c-card-title">
-                                        <small>R$ <?php echo $canceladas; ?></small>
+                                        <small>R$ <?php echo $naoFinalizado; ?></small>
                                         <span id="transacao_negada"></span>
                                     </h3>
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('naoFinalizado')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -405,8 +382,10 @@
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('newLocacao')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -418,16 +397,18 @@
                                     <div class="c-card-icon c-inscritos">
                                         <em class="fa fa-user c-icon"></em>
                                     </div>
-                                    <p class="c-card-category">Não Finalizadas</p>
+                                    <p class="c-card-category">Locações Canceladas</p>
                                     <h3 class="c-card-title">
-                                        <span id="inscritos"><?php echo $pendencias;?></span>
+                                        <span id="inscritos"><?php echo $cancelados;?></span>
                                         <small>Locações</small>
                                     </h3>
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('cancelados')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -446,8 +427,10 @@
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('naoEntregue')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -466,8 +449,10 @@
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('ajustes')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -486,8 +471,10 @@
                                 </div>
                                 <div class="c-card-footer">
                                     <div class="c-stats">
-                                        <em class="fa fa-clock-o c-stats-icon"></em>
-                                        <span class="c-stats-text">Atualizado: <?php echo date('H:i') ?></span>
+                                        <a href="#" onclick="seeMore('retirada')">
+                                            <em class="fa fa-eye c-stats-icon"></em>
+                                            <span class="c-stats-text">Ver mais</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -576,8 +563,6 @@
     
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-       var base_url = location.protocol + "//" + window.location.hostname;
-    
         function mudagrafico(id){
             if(id == 1){
                 $('#graficohora').show();
@@ -590,11 +575,6 @@
         }
     </script>
     <script>
-        // $('document').ready(function(){
-        //     $('#dia30').click(); 
-        // });
-    </script>
-       <script>
         function diasDash(dias){
             
             if(dias == 1){
@@ -669,7 +649,7 @@
             
         }
         
-          function ultimosPedidos(loja_id){
+        function ultimosPedidos(loja_id){
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
@@ -702,35 +682,22 @@
         }
     </script>
     <script>
-      
+        function seeMore(call){
+            alert(call);
+        }
     </script>
-    <script type="text/javascript">
     
-        // load google charts library
-        google.load("visualization", "1", {packages: ["corechart"]});
-        // Set a callback to run when the Google Visualization API is loaded.
-        google.charts.setOnLoadCallback(drawChart6);
-
-        function drawChart6() {
-            $.ajax({
-                url: base_url + "/restrito/getVendaForma",
-                type: "POST",
-                dataType: "json",
-                success: function(response){
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Formas de Pagamento');
-                    data.addColumn('number', 'Quantidade');
-                    data.addRows(response);               
-
-                    var options = {
-                        chartArea: {left:15,right:15,width:'90%',height:'80%'},
-                        height: 350,
-                        pieHole: 0.4,
-                    };
-
-                    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-                    chart.draw(data, options);
-                },
-            });
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(<?php echo $pagRecorrente; ?>);
+            var options = {
+                is3D: true,
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+            chart.draw(data, options);
         }
     </script>

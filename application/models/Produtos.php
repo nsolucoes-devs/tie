@@ -16,11 +16,11 @@ class Produtos extends CI_Model
         unset($a['produto_tamanhos']);
         unset($a['produto_cores']);
 
-        $this->db->select("sum(estoque_quantidade) as estoque_quantidade, estoque_produto, estoque_loja");
+        /*$this->db->select("sum(estoque_quantidade) as estoque_quantidade, estoque_produto, estoque_loja");
         $this->db->where('estoque_loja =', $a['estoque_loja']);
         $this->db->where('estoque_produto =', $a['estoque_produto']);
         $this->db->group_by("estoque_produto");
-        $estoques = $this->db->get('estoque')->row_array();
+        $estoques = $this->db->get('estoque')->row_array();*/
 
         return $a;
     }
@@ -64,11 +64,11 @@ class Produtos extends CI_Model
 
     public function getValorSite($id)
     {
-        $this->db->select("produto_nome");
+        $this->db->select("produto_nome, produto_valor");
         $this->db->where('produto_id', $id);
         $a = $this->db->get('produtos')->row_array();
 
-        $this->db->select("estoque_valor");
+        /*$this->db->select("estoque_valor");
         $this->db->where('estoque_loja =', 25);
         $this->db->where('estoque_produto =', $a['produto_nome']);
         $this->db->order_by("estoque_id", 'DESC');
@@ -76,8 +76,10 @@ class Produtos extends CI_Model
         $estoques = $this->db->get('estoque')->row_array();
 
         //$estoques['estoque_valor'] = 80;
-
+        
         return $estoques['estoque_valor'];
+        */
+        return $a['produto_valor'];
     }
 
     public function getTamanhosSite($id)
@@ -185,17 +187,18 @@ class Produtos extends CI_Model
         return $promocao;
     }
 
-    public function getDepartamentoLista($lista)
-    {
-        if (!is_null($lista)) {
+    public function getDepartamentoLista($lista){
+        if (!empty($lista)) {
             if (strpos($lista, "¬")) {
-                $lista = explode("¬", $lista);
+                $depart = explode("¬", $lista);
             } else {
-                $lista[0] = $lista;
+                $depart = array(
+                    '0' => $lista,
+                    );
             }
-            for ($i = 0; $i < count($lista); $i++) {
+            for ($i = 0; $i < count($depart); $i++) {
                 $this->db->select("departamento_nome");
-                $this->db->where("departamento_id", $lista[$i]);
+                $this->db->where("departamento_id", $depart[$i]);
                 $b = $this->db->get('departamentos')->row_array();
                 $a[$i] = $b['departamento_nome'];
             }
@@ -284,12 +287,12 @@ class Produtos extends CI_Model
         $this->db->limit(8);
         $a = $this->db->get('produtos')->result_array();
 
-        for ($i = 0; $i < count($a); $i++) {
+        /*for ($i = 0; $i < count($a); $i++) {
             $this->db->where('estoque_produto', $a[$i]['produto_nome']);
             $this->db->order_by('estoque_id', 'DESC');
             $aux = $this->db->get('estoque')->row_array();
             $a[$i]['produto_valor'] = $aux['estoque_valor'];
-        }
+        }*/
 
         return $a;
     }
