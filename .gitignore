@@ -7,6 +7,8 @@
 !*/cache/index.html
 !*/cache/.htaccess
 
+error_log*
+
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
@@ -21,3 +23,6 @@ application/logs/*
 # Config server
 /application/config/config.php
 /application/config/database.php
+/imagens/*
+
+index.php
